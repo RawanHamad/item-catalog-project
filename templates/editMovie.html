@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h1>Edit {{ item.title }}</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1">
+			<form action="{{url_for('editMovie', genre_id = item.genre_id, movie_id = item.id,)}}" method = "post">
+				<div class="form-group">
+				<label for="name">Item Name:</label>
+				<input type ="text" class="form-control" maxlength="100" value="{{item.name}}" name="name">
+				<label for="name" class="margin-top">Description:</label>
+				<input type ="textarea" class="form-control"value="{{item.description}}"  name="description">
+				<div class="padding-bottom"></div>
+				<select class="margin-top" name="genre">
+					{% for genre in genres %}
+						 <option> {{genre.name}} </option>
+					{% endfor %}
+				</select>
+				<div class="margin-top"></div>
+				<input type="submit" type="submit" value="Edit!"/>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

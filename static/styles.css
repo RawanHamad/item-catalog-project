@@ -1,0 +1,24 @@
+.header {
+  background-color: #000000;
+  padding: 1.5%;
+}
+
+.catalog {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.title {
+  font-size: 150%;
+}
+
+.addItem{
+  font-size: 150%;
+  padding-Top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.margin-top {
+  margin-top: 10px;
+}

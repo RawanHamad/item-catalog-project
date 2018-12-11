@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h1>{{ item.title }}</h1>
+      <p>{{ item.description }}</p>
+		</div>
+	</div>
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<a href="{{url_for('editMovie', genre_id= genre_id, movie_id = item.id )}}">
+				<button class="btn btn-default">
+					Edit Movie
+				</button>
+			</a>
+
+			<a href="{{url_for('deleteMovie', genre_id= genre_id, movie_id = item.id  )}}">
+				<button class="btn btn-default delete">
+					Delete Movie
+				</button>
+			</a>
+		</div>
+		<div class="col-md-7"></div>
+	</div>
+
+
+{% endblock %}
